@@ -1,7 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Route, Switch, useLocation } from "wouter";
-import { openSocket } from "app/appSlice";
 import { RootState } from "app/store";
 import { Button, Callout, Classes, Dialog, Spinner } from "@blueprintjs/core";
 import Sim from "features/sim/Sim";
@@ -10,10 +9,10 @@ import Debug from "features/debug/Debug";
 import Results from "features/results/Results";
 
 function App() {
-  const { socketOpen, loading, msg, hasErr, haveResults, haveDebug } =
+  const { loading, msg, hasErr, haveResults, haveDebug } =
     useSelector((state: RootState) => {
       return {
-        socketOpen: state.app.isOpen,
+        // socketOpen: state.app.isOpen,
         loading: state.sim.isLoading,
         msg: state.sim.msg,
         hasErr: state.sim.hasErr,
@@ -21,7 +20,7 @@ function App() {
         haveDebug: state.debug.haveDebug,
       };
     });
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [open, setIsOpen] = React.useState<boolean>(false);
   const [, setLocation] = useLocation();
 
@@ -32,10 +31,10 @@ function App() {
     };
   };
 
-  React.useEffect(() => {
-    dispatch(openSocket());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(openSocket());
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   React.useEffect(() => {
     if (loading === true) {
@@ -43,19 +42,19 @@ function App() {
     }
   }, [loading]);
 
-  if (!socketOpen) {
-    return (
-      <div className="App">
-        <div style={{ marginLeft: "100px", marginTop: "50px" }}>
-          <div className="row center-xs">
-            <Callout intent="warning">
-              Connecting to server... Please wait.
-            </Callout>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // if (!socketOpen) {
+  //   return (
+  //     <div className="App">
+  //       <div style={{ marginLeft: "100px", marginTop: "50px" }}>
+  //         <div className="row center-xs">
+  //           <Callout intent="warning">
+  //             Connecting to server... Please wait.
+  //           </Callout>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="App">

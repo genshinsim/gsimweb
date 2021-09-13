@@ -1,39 +1,39 @@
 // import { Intent, Position, Toaster } from "@blueprintjs/core";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { sendMessage } from "app/appSlice";
+// import { sendMessage } from "app/appSlice";
 import { AppThunk } from "app/store";
 import { setActiveName, setLogs, setNames } from "features/debug/debugSlice";
 import { setResultData } from "features/results/resultsSlice";
 // eslint-disable-next-line
 import Worker from "worker-loader!./SimWorker";
 
-export function saveConfig(path: string, config: string): AppThunk {
-  return function (dispatch) {
-    const cb = (resp: any) => {
-      //check resp code
-      if (resp.status !== 200) {
-        //do something here
-        console.log("Error from server: ", resp.payload);
-        return;
-      }
-      //update
-      dispatch(setHasChange(false));
-      console.log(resp.data);
-    };
+// export function saveConfig(path: string, config: string): AppThunk {
+//   return function (dispatch) {
+//     const cb = (resp: any) => {
+//       //check resp code
+//       if (resp.status !== 200) {
+//         //do something here
+//         console.log("Error from server: ", resp.payload);
+//         return;
+//       }
+//       //update
+//       dispatch(setHasChange(false));
+//       console.log(resp.data);
+//     };
 
-    dispatch(
-      sendMessage(
-        "file",
-        "save/file",
-        JSON.stringify({
-          path: path,
-          data: config,
-        }),
-        cb
-      )
-    );
-  };
-}
+//     dispatch(
+//       sendMessage(
+//         "file",
+//         "save/file",
+//         JSON.stringify({
+//           path: path,
+//           data: config,
+//         }),
+//         cb
+//       )
+//     );
+//   };
+// }
 
 
 
