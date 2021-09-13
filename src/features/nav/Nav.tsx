@@ -25,7 +25,7 @@ function Nav() {
   return (
     <Navbar style={{ marginBottom: "5px" }}>
       <Navbar.Group>
-        <Navbar.Heading>gisim</Navbar.Heading>
+        <Navbar.Heading>gsim</Navbar.Heading>
         <Navbar.Divider />
         <Button
           className="bp3-minimal"
