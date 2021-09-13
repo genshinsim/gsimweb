@@ -33,7 +33,7 @@ function Dash() {
 
   const [logDebug, setLogDebug] = React.useState<boolean>(true);
   const [duration, setDuration] = React.useState<number>(90);
-  const [iter, setIter] = React.useState<number>(20);
+  const [iter, setIter] = React.useState<number>(300);
   const [workers, setWorkers] = React.useState<number>(1);
 
   const [openSample, setOpenSample] = React.useState<boolean>(false);
