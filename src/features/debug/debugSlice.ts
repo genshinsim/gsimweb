@@ -22,7 +22,8 @@ export const debugSlice = createSlice({
   initialState,
   reducers: {
     setLogs: (state, action: PayloadAction<string>) => {
-      state.logs = action.payload;
+      // console.log(action.payload)
+      state.logs = action.payload.replace("undefined", "")
       if (state.logs !== "") {
         state.haveDebug = true;
       }

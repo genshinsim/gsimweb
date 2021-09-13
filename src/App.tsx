@@ -2,14 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Switch, useLocation } from "wouter";
 import { RootState } from "app/store";
-import { Button, Callout, Classes, Dialog, Spinner } from "@blueprintjs/core";
+import { Button, Callout, Classes, Dialog, ProgressBar, Spinner } from "@blueprintjs/core";
 import Sim from "features/sim/Sim";
 import Nav from "features/nav/Nav";
 import Debug from "features/debug/Debug";
 import Results from "features/results/Results";
 
 function App() {
-  const { loading, msg, hasErr, haveResults, haveDebug } =
+  const { loading, msg, hasErr, haveResults, haveDebug, progress } =
     useSelector((state: RootState) => {
       return {
         // socketOpen: state.app.isOpen,
@@ -18,6 +18,7 @@ function App() {
         hasErr: state.sim.hasErr,
         haveResults: state.results.haveResult,
         haveDebug: state.debug.haveDebug,
+        progress: state.sim.percent,
       };
     });
   // const dispatch = useDispatch();
@@ -67,6 +68,8 @@ function App() {
           <div className={Classes.DIALOG_BODY}>
             Running sim. Please wait...
             <Spinner></Spinner>
+            <br />
+            <ProgressBar animate value={progress / 100} intent="primary" />
           </div>
         ) : (
           <div>

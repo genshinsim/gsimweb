@@ -42,16 +42,29 @@ const worker: Worker = new Worker()
 export function runSim(config: simConfig): AppThunk {
   return function (dispatch, getState) {
 
-    worker.onmessage = (e: { data: { err: string; data: string } }) => {
-      console.log(e.data.err)
-      console.log(e.data.data)
+    worker.onmessage = (e: {
+      data: {
+        isUpdate: boolean;
+        percent: number;
+        err: string;
+        data: string;
+        debug: string;
+      }
+    }) => {
+      // console.log(e.data.err)
+      // console.log(e.data.data)
+
+      if (e.data.isUpdate) {
+        dispatch(setPercent(e.data.percent))
+        return
+      }
 
       dispatch(setLoading(false));
       if (e.data.err == null) {
         let r = JSON.parse(e.data.data)
         dispatch(setResultData(r));
-        if (r.debug) {
-          dispatch(setLogs(r.debug));
+        if (e.data.debug !== "") {
+          dispatch(setLogs(e.data.debug));
           dispatch(setNames(r.char_names));
         }
         dispatch(setMessage("Simulation finished. check results"));
@@ -60,7 +73,6 @@ export function runSim(config: simConfig): AppThunk {
         dispatch(setHasErr(true));
         console.log("err: ", e.data.err)
       }
-
     }
 
 
@@ -70,6 +82,7 @@ export function runSim(config: simConfig): AppThunk {
     dispatch(setNames([]));
     dispatch(setMessage(""));
     dispatch(setHasErr(false));
+    dispatch(setPercent(0))
 
     //find out who the active is
     const found = config.config.match(/active\+=(\w+);/);
@@ -118,6 +131,7 @@ interface SimState {
   hasChange: boolean;
   msg: string;
   hasErr: boolean;
+  percent: number;
 }
 const initialState: SimState = {
   isLoading: false,
@@ -125,6 +139,7 @@ const initialState: SimState = {
   hasChange: false,
   msg: "",
   hasErr: false,
+  percent: 0,
 };
 
 export const simSlice = createSlice({
@@ -147,9 +162,12 @@ export const simSlice = createSlice({
     setHasErr: (state, action: PayloadAction<boolean>) => {
       state.hasErr = action.payload;
     },
+    setPercent: (state, action: PayloadAction<number>) => {
+      state.percent = action.payload;
+    }
   },
 });
 
-export const { setConfig, setLoading, setHasChange, setMessage, setHasErr } =
+export const { setConfig, setLoading, setHasChange, setMessage, setHasErr, setPercent } =
   simSlice.actions;
 export default simSlice.reducer;

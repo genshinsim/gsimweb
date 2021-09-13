@@ -19,7 +19,7 @@ export const resultSlice = createSlice({
     setResultData: (state, action: PayloadAction<AvgModeSummary | null>) => {
       state.data = action.payload;
       state.haveResult = state.data !== null;
-    },
+    }
   },
 });
 
