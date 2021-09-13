@@ -1,6 +1,10 @@
 import { simConfig } from './simSlice'
 import './workerHack'
-import 'wasm/wasm_exec'
+
+
+let url = process.env.PUBLIC_URL + "/wasm_exec.js"
+// @ts-ignore
+importScripts(url)
 
 
 if (!WebAssembly.instantiateStreaming) { // polyfill
@@ -12,8 +16,7 @@ if (!WebAssembly.instantiateStreaming) { // polyfill
 
 // @ts-ignore
 const go = new Go();
-console.log(process.env.PUBLIC_URL)
-let url = process.env.PUBLIC_URL + "/sim.wasm"
+url = process.env.PUBLIC_URL + "/sim.wasm"
 let inst;
 WebAssembly.instantiateStreaming(fetch(url), go.importObject).then((result) => {
     inst = result.instance;

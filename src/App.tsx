@@ -77,14 +77,14 @@ function App() {
               <div className={Classes.DIALOG_FOOTER_ACTIONS}>
                 <Button onClick={() => setIsOpen(false)}>Close</Button>
                 <Button
-                  onClick={navigate("/results")}
+                  onClick={navigate("/gsimweb/results")}
                   intent="success"
                   disabled={!haveResults}
                 >
                   View Results
                 </Button>
                 <Button
-                  onClick={navigate("/debug")}
+                  onClick={navigate("/gsimweb/debug")}
                   intent="primary"
                   disabled={!haveDebug}
                 >
@@ -97,9 +97,9 @@ function App() {
       </Dialog>
       <Nav />
       <Switch>
-        <Route path="/" component={Sim} />
-        <Route path="/results" component={Results} />
-        <Route path="/debug" component={Debug} />
+        <Route path="/gsimweb/" component={Sim} />
+        <Route path="/gsimweb/results" component={Results} />
+        <Route path="/gsimweb/debug" component={Debug} />
       </Switch>
     </div>
   );

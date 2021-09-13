@@ -31,20 +31,20 @@ function Nav() {
           className="bp3-minimal"
           icon="home"
           text="Sim"
-          onClick={navigate("/")}
+          onClick={navigate("/gsimweb/")}
         />
         <Button
           className="bp3-minimal"
           icon="document"
           text="Results"
-          onClick={navigate("/results")}
+          onClick={navigate("/gsimweb/results")}
           disabled={!haveResults}
         />
         <Button
           className="bp3-minimal"
           icon="error"
           text="Debug"
-          onClick={navigate("/debug")}
+          onClick={navigate("/gsimweb/debug")}
           disabled={!haveDebug}
         />
       </Navbar.Group>
