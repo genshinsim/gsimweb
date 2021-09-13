@@ -105,7 +105,7 @@ function Dash() {
           >
             Get started by building a config file. Check out the{" "}
             <a
-              href="https://github.com/srliao/gisim/wiki"
+              href="https://github.com/genshinsim/gsim/wiki"
               target="_blank"
               rel="noreferrer"
             >
