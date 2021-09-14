@@ -1,17 +1,17 @@
 // genshin-db.d.ts
-declare module "genshin-db" {
+declare module "genshin-db/genshindb.js" {
   export interface QueryFunction<R> {
     <Q extends string, O extends QueryOptions>(query: Q, opts?: O):
       | (O extends { matchCategories: true }
-          ? O extends { verboseCategories: true }
-            ? R[]
-            : string[]
-          : never)
+        ? O extends { verboseCategories: true }
+        ? R[]
+        : string[]
+        : never)
       | (Q extends "names"
-          ? O extends { matchCategories: true }
-            ? never
-            : R | undefined
-          : R | undefined);
+        ? O extends { matchCategories: true }
+        ? never
+        : R | undefined
+        : R | undefined);
   }
 
   /* Logic

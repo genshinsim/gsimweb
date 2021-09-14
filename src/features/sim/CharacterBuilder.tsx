@@ -8,7 +8,8 @@ import {
   H4,
 } from "@blueprintjs/core";
 import React from "react";
-import genshindb from "genshin-db";
+//import genshindb from "genshin-db/genshindb";
+let genshindb = require("genshin-db/genshindb")
 
 const validLvl = /^(?:\d{1,2})?\+?$/;
 
@@ -106,7 +107,7 @@ function CharacterBuilder({
       }
       cname = c.name.toLowerCase();
 
-      let stat: genshindb.StatResult;
+      let stat: any // genshindb.StatResult;
 
       if (/^\d{1,2}\+$/.test(charLvl)) {
         const lvl = parseInt(charLvl.slice(0, -1));
@@ -150,7 +151,7 @@ function CharacterBuilder({
 
       console.log(w);
 
-      let stat: genshindb.StatResult;
+      let stat: any //genshindb.StatResult;
 
       if (/^\d{1,2}\+$/.test(weaponLvl)) {
         const lvl = parseInt(weaponLvl.slice(0, -1));
