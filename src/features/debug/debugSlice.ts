@@ -23,7 +23,7 @@ export const debugSlice = createSlice({
   reducers: {
     setLogs: (state, action: PayloadAction<string>) => {
       // console.log(action.payload)
-      state.logs = action.payload.replace("undefined", "")
+      state.logs = action.payload.replace("undefined", "");
       if (state.logs !== "") {
         state.haveDebug = true;
       }
@@ -225,6 +225,9 @@ export const selectLogs = createSelector(
           break;
         case "snapshot":
           x.Icon = IconNames.CAMERA;
+          break;
+        case "snapshot_mods":
+          x.Icon = IconNames.BUILD;
           break;
         case "heal":
           x.Icon = IconNames.HEART;

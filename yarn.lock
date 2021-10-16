@@ -5529,10 +5529,10 @@ fuzzysort@^1.1.4:
   resolved "https://registry.yarnpkg.com/fuzzysort/-/fuzzysort-1.1.4.tgz#a0510206ed44532cbb52cf797bf5a3cb12acd4ba"
   integrity sha512-JzK/lHjVZ6joAg3OnCjylwYXYVjRiwTY6Yb25LvfpJHK8bjisfnZJ5bY8aVWwTwCXgxPNgLAtmHL+Hs5q1ddLQ==
 
-genshin-db@^3:
-  version "3.9.6"
-  resolved "https://registry.yarnpkg.com/genshin-db/-/genshin-db-3.9.6.tgz#e8f0bdd8282b5ef42d4b32d63550cebb0ef519e8"
-  integrity sha512-8/Qvaoyo0sGLIPSZLWNZnopwo2etKUS8WODNJJByY7rO21Qk3i2EEXvetxLTdtoE28j2V6w4dzDI1GNyc+Bwmw==
+genshin-db@^3.10.4:
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/genshin-db/-/genshin-db-3.10.4.tgz#d8c4e236c413908565e8292634b78d682e2fecb2"
+  integrity sha512-KLdE2o32JlbilHbqn2X/2pU1PYEHmBXuhJDibXsxsKib5z9RoXGAaDe2aygIZzg30p8xZS0/4c+vmaUFBo5RFw==
   dependencies:
     fuzzysort "^1.1.4"
 
@@ -9471,6 +9471,11 @@ react-fast-compare@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
+react-ga@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.3.0.tgz#c91f407198adcb3b49e2bc5c12b3fe460039b3ca"
+  integrity sha512-o8RScHj6Lb8cwy3GMrVH6NJvL+y0zpJvKtc0+wmH7Bt23rszJmnqEQxRbyrqUzk9DTJIHoP42bfO5rswC9SWBQ==
 
 react-is@16.10.2:
   version "16.10.2"

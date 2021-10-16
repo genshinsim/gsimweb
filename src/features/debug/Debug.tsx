@@ -268,6 +268,11 @@ function Debug() {
                 onChange={(e) => toggleLogEvent("snapshot")}
               />
               <Checkbox
+                checked={logEvents.includes("snapshot_mods")}
+                label="mods (snapshot)"
+                onChange={(e) => toggleLogEvent("snapshot_mods")}
+              />
+              <Checkbox
                 checked={logEvents.includes("status")}
                 label="status"
                 onChange={(e) => toggleLogEvent("status")}

@@ -2,11 +2,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Switch, useLocation } from "wouter";
 import { RootState } from "app/store";
-import { Button, Callout, Classes, Dialog, ProgressBar, Spinner } from "@blueprintjs/core";
+import {
+  Button,
+  Callout,
+  Classes,
+  Dialog,
+  ProgressBar,
+  Spinner,
+} from "@blueprintjs/core";
 import Sim from "features/sim/Sim";
 import Nav from "features/nav/Nav";
 import Debug from "features/debug/Debug";
 import Results from "features/results/Results";
+import Builder from "features/builder/Builder";
 
 function App() {
   const { loading, msg, hasErr, haveResults, haveDebug, progress } =
@@ -101,6 +109,7 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/gsimweb/" component={Sim} />
+        <Route path="/gsimweb/builder" component={Builder} />
         <Route path="/gsimweb/results" component={Results} />
         <Route path="/gsimweb/debug" component={Debug} />
       </Switch>

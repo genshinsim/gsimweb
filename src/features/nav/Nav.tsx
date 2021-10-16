@@ -35,6 +35,12 @@ function Nav() {
         />
         <Button
           className="bp3-minimal"
+          icon="wrench"
+          text="Builder"
+          onClick={navigate("/gsimweb/builder")}
+        />
+        <Button
+          className="bp3-minimal"
           icon="document"
           text="Results"
           onClick={navigate("/gsimweb/results")}
